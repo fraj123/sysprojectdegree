@@ -1,17 +1,26 @@
 package com.packt.sysprojectdegree.user;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String username;
     private String firstname;
     private String lastname;
+    private String email;
+    private long phoneNumber;
+    private String avatar;
 
     private User () {
 
     }
-
-    
 
     public void setId(long id) {
         this.id = id;
@@ -44,5 +53,30 @@ public class User {
     public String getLastname() {
         return lastname;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+    
 
 }
