@@ -3,8 +3,8 @@ Project Degree Monitoring System
 
 ## System Architecture
 ```mermaid
-graph LR:
-    projerctDb[(projerctDb)]
+graph LR;
+    projerctDb[(projerctDb)];
     projerctDb-->Backend;
     Backend-->Frontend;
 ```
