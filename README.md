@@ -1,5 +1,13 @@
 # sysprojectdegree
 Project Degree Monitoring System
+
+## System Architecture
+```mermaid
+graph LR:
+    projerctDb[(projerctDb)]
+    projerctDb-->Backend;
+    Backend-->Frontend;
+```
 ## Create DB container
 ```
 docker-composer up -d
@@ -14,4 +22,3 @@ docker exec -it sysprojectdegree bash
 ```
 Pass:`6?+Kf_Z2YFU9wGa-Yn2T`
 
-## Hola Team Softwork
