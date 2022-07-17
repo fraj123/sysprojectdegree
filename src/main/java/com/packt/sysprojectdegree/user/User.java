@@ -18,8 +18,18 @@ public class User {
     private long phoneNumber;
     private String avatar;
 
-    private User () {
+    public User () {
 
+    }
+
+    public User(String username, String firstname, String lastname, String email, long phoneNumber, String avatar) {
+        super();
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.avatar = avatar;
     }
 
     public void setId(long id) {
