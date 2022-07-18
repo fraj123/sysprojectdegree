@@ -88,6 +88,19 @@ public class User {
         return avatar;
     }
 
+    
+
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    
+    @Override
+    public String toString() {
+        return "User [avatar=" + avatar + ", email=" + email + ", firstname=" + firstname + ", id=" + id + ", lastname="
+                + lastname + ", phoneNumber=" + phoneNumber + ", username=" + username + "]";
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
@@ -99,7 +112,6 @@ public class User {
         result = prime * result + ((avatar == null) ? 0 : avatar.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
-        result = prime * result + (int) (id ^ (id >>> 32));
         result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
         result = prime * result + (int) (phoneNumber ^ (phoneNumber >>> 32));
         result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -132,8 +144,6 @@ public class User {
                 return false;
         } else if (!firstname.equals(other.firstname))
             return false;
-        if (id != other.id)
-            return false;
         if (lastname == null) {
             if (other.lastname != null)
                 return false;
@@ -147,15 +157,5 @@ public class User {
         } else if (!username.equals(other.username))
             return false;
         return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    
-    @Override
-    public String toString() {
-        return "User [avatar=" + avatar + ", email=" + email + ", firstname=" + firstname + ", id=" + id + ", lastname="
-                + lastname + ", phoneNumber=" + phoneNumber + ", username=" + username + "]";
     }
 }
