@@ -37,6 +37,10 @@ public class User {
     )
     private Set<Role> roles;
 
+    public User() {
+
+    }
+
     /**
      * @param username
      * @param firstname
