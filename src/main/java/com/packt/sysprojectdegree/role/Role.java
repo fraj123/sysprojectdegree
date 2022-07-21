@@ -1,9 +1,14 @@
 package com.packt.sysprojectdegree.role;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import com.packt.sysprojectdegree.user.User;
 
 @Entity
 public class Role {
@@ -13,6 +18,8 @@ public class Role {
     private Long id;
 
     private String name;
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 
     public Role() {
 
