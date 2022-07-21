@@ -1,9 +1,16 @@
 package com.packt.sysprojectdegree.user;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+import com.packt.sysprojectdegree.role.Role;
 
 @Entity
 public class User {
@@ -18,6 +25,17 @@ public class User {
     private String email;
     private long phoneNumber;
     private String avatar;
+    @ManyToMany
+    @JoinTable(
+        name = "users_roles",
+        joinColumns = @JoinColumn(
+            name = "user_id", referencedColumnName = "id"
+            ),
+        inverseJoinColumns = @JoinColumn(
+            name = "role_id", referencedColumnName = "id"
+            )
+    )
+    private Set<Role> roles;
 
     /**
      * @param username
@@ -134,6 +152,20 @@ public class User {
         this.avatar = avatar;
     }
 
+	/**
+	 * @return the roles
+	 */
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	/**
+	 * @param roles the roles to set
+	 */
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
@@ -201,7 +233,5 @@ public class User {
         return "User [avatar=" + avatar + ", email=" + email + ", firstname=" + firstname + ", id=" + id + ", lastname="
                 + lastname + ", phoneNumber=" + phoneNumber + ", username=" + username + "]";
     }
-
-
 
 }
