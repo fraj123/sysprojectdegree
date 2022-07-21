@@ -1,6 +1,7 @@
 package com.packt.sysprojectdegree;
 
 import com.packt.sysprojectdegree.user.User;
+import com.packt.sysprojectdegree.project.Project;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +18,8 @@ class SysprojectdegreeApplicationTests {
     @Test
     public void equalsHashCodeContracts() {
         EqualsVerifier.forClass(User.class).verify();
-        
+        EqualsVerifier.forClass(Project.class).verify();
     }
 
 }
+
