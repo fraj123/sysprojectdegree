@@ -11,6 +11,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String username;
     private String firstname;
     private String lastname;
@@ -18,12 +19,15 @@ public class User {
     private long phoneNumber;
     private String avatar;
 
-    public User () {
-
-    }
-
+    /**
+     * @param username
+     * @param firstname
+     * @param lastname
+     * @param email
+     * @param phoneNumber
+     * @param avatar
+     */
     public User(String username, String firstname, String lastname, String email, long phoneNumber, String avatar) {
-
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -32,70 +36,102 @@ public class User {
         this.avatar = avatar;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
+    /**
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    /**
+     * @param id the id to set
+     */
+    public void setId(long id) {
+        this.id = id;
     }
 
+    /**
+     * @return the username
+     */
     public String getUsername() {
         return username;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
     }
 
+    /**
+     * @return the firstname
+     */
     public String getFirstname() {
         return firstname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    /**
+     * @param firstname the firstname to set
+     */
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
+    /**
+     * @return the lastname
+     */
     public String getLastname() {
         return lastname;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    /**
+     * @param lastname the lastname to set
+     */
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
+    /**
+     * @return the email
+     */
     public String getEmail() {
         return email;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    /**
+     * @return the phoneNumber
+     */
     public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    /**
+     * @param phoneNumber the phoneNumber to set
+     */
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
+    /**
+     * @return the avatar
+     */
     public String getAvatar() {
         return avatar;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
+    /**
+     * @param avatar the avatar to set
      */
-    
-    @Override
-    public String toString() {
-        return "User [avatar=" + avatar + ", email=" + email + ", firstname=" + firstname + ", id=" + id + ", lastname="
-                + lastname + ", phoneNumber=" + phoneNumber + ", username=" + username + "]";
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     /* (non-Javadoc)
@@ -155,4 +191,17 @@ public class User {
             return false;
         return true;
     }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    
+    @Override
+    public String toString() {
+        return "User [avatar=" + avatar + ", email=" + email + ", firstname=" + firstname + ", id=" + id + ", lastname="
+                + lastname + ", phoneNumber=" + phoneNumber + ", username=" + username + "]";
+    }
+
+
+
 }
