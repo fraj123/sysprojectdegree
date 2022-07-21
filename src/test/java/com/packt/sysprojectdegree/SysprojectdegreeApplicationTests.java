@@ -17,7 +17,6 @@ class SysprojectdegreeApplicationTests {
     @Test
     public void equalsHashCodeContracts() {
         EqualsVerifier.forClass(User.class).verify();
-        
     }
 
 }

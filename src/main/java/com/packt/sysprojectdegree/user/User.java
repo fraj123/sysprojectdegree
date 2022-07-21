@@ -88,9 +88,6 @@ public class User {
         return avatar;
     }
 
-    
-
-
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
