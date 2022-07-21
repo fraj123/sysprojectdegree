@@ -60,6 +60,20 @@ public class Role {
         this.name = name;
     }
 
+	/**
+	 * @return the users
+	 */
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	/**
+	 * @param users the users to set
+	 */
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
@@ -97,8 +111,10 @@ public class Role {
     
     @Override
     public String toString() {
-        return "Role [name=" + name + "]";
+        return "Role [id=" + id + ", name=" + name + "]";
     }
+
+
 
 
 
