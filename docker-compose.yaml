@@ -6,6 +6,9 @@ services:
     restart: always
     ports:
       - 3306:3306
+    command: --init-file /data/application/init.sql
+    volumes:
+        - ./init.sql:/data/application/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: 6?+Kf_Z2YFU9wGa-Yn2T
-
+      MYSQL_DATABASE: sysprojectdegree
