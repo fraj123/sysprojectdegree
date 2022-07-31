@@ -3,9 +3,15 @@ package com.packt.sysprojectdegree.document;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.packt.sysprojectdegree.document_type.DocumentType;
+
 
 
 @Entity
@@ -24,12 +30,13 @@ public class Document {
 		private String pdf;
 		private Boolean VoBo;
 		
-		
-		private Long id_doc_type;
+		@ManyToOne(fetch=FetchType.LAZY)
+		@JoinColumn(name="document_type")
+		private DocumentType documentType;
 
 
 		public Document(Long id, String titulo, String resumen, String indice, String bibliografia, String pdf,
-				Boolean voBo, Long id_doc_type) {
+				Boolean voBo, DocumentType documentType) {
 			super();
 			this.id = id;
 			this.titulo = titulo;
@@ -38,7 +45,8 @@ public class Document {
 			this.bibliografia = bibliografia;
 			this.pdf = pdf;
 			VoBo = voBo;
-			this.id_doc_type = id_doc_type;
+			this.documentType = documentType;
+			
 		}
 
 
@@ -112,13 +120,16 @@ public class Document {
 		}
 
 
-		public Long getId_doc_type() {
-			return id_doc_type;
+
+
+
+		public DocumentType getDocumentType() {
+			return documentType;
 		}
 
 
-		public void setId_doc_type(Long id_doc_type) {
-			this.id_doc_type = id_doc_type;
+		public void setDocumentType(DocumentType documentType) {
+			this.documentType = documentType;
 		}
 
 
