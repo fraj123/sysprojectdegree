@@ -12,3 +12,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 6?+Kf_Z2YFU9wGa-Yn2T
       MYSQL_DATABASE: sysprojectdegree
+
+networks:
+  default:
+    name: sysprojectdegree-ci_default
+    external: true
