@@ -1,5 +1,6 @@
 pipeline {
-    agent( label "java17" )
+    agent any
+
     stages {
         stage('Build with unit testing') {
             script {
