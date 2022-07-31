@@ -11,7 +11,7 @@ pipeline {
         }
         stage("Test stage") {
             steps {
-                sh "mvn test"
+                sh "./mvnw test"
             }
         }
     }
