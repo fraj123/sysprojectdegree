@@ -2,6 +2,7 @@ package com.packt.sysprojectdegree;
 
 import com.packt.sysprojectdegree.role.Role;
 import com.packt.sysprojectdegree.user.User;
+import com.packt.sysprojectdegree.activity.activity;
 import com.packt.sysprojectdegree.project.Project;
 
 import org.junit.jupiter.api.Test;
@@ -28,6 +29,7 @@ class SysprojectdegreeApplicationTests {
             .withPrefabValues(User.class, new User("franz.mejia", "Franz", "Mejia", "mejiafranz@email.com", 12345678, "path-to-avatar"), new User("julio.cori", "Julio", "Cori", "corijulio@email.com", 23456789, "path-to-avatar"))
             .verify();
         EqualsVerifier.forClass(Project.class).verify();
+        EqualsVerifier.forClass(activity.class).verify();
 
     }
 
