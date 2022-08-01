@@ -2,8 +2,7 @@ package com.packt.sysprojectdegree;
 
 import com.packt.sysprojectdegree.role.Role;
 import com.packt.sysprojectdegree.user.User;
-import com.packt.sysprojectdegree.activity.activity;
-import com.packt.sysprojectdegree.project.Project;
+import com.packt.sysprojectdegree.activity.Activity;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,8 +27,7 @@ class SysprojectdegreeApplicationTests {
             .withIgnoredFields("users")
             .withPrefabValues(User.class, new User("franz.mejia", "Franz", "Mejia", "mejiafranz@email.com", 12345678, "path-to-avatar"), new User("julio.cori", "Julio", "Cori", "corijulio@email.com", 23456789, "path-to-avatar"))
             .verify();
-        EqualsVerifier.forClass(Project.class).verify();
-        EqualsVerifier.forClass(activity.class).verify();
+        EqualsVerifier.forClass(Activity.class).verify();
 
     }
 

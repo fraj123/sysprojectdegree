@@ -1,12 +1,19 @@
 package com.packt.sysprojectdegree.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.packt.sysprojectdegree.user.UserActivity;
 
 @Entity
-public class activity {
+public class Activity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,6 +21,20 @@ public class activity {
 
     private String name;
     private String nivel;
+
+    @OneToMany(mappedBy = "activity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserActivity> users = new ArrayList<>();
+
+    public Activity() {}
+
+    /**
+     * @param name
+     * @param nivel
+     */
+    public Activity(String name, String nivel) {
+        this.name = name;
+        this.nivel = nivel;
+    }
 
     /**
      * @return the id
@@ -71,9 +92,9 @@ public class activity {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (!(obj instanceof activity))
+        if (!(obj instanceof Activity))
             return false;
-        activity other = (activity) obj;
+        Activity other = (Activity) obj;
         if (name == null) {
             if (other.name != null)
                 return false;
@@ -93,7 +114,7 @@ public class activity {
     
     @Override
     public String toString() {
-        return "activity [id=" + id + ", name=" + name + ", nivel=" + nivel + "]";
+        return "Activity [id=" + id + ", name=" + name + ", nivel=" + nivel + "]";
     }
 
 
