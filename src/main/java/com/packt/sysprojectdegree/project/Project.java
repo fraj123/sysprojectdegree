@@ -1,9 +1,16 @@
 package com.packt.sysprojectdegree.project;
 
+import com.packt.sysprojectdegree.cronograma.Cronograma;
+
+import java.util.Set;
+
 import javax.persistence.Entity;
+//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 
 @Entity
 public class Project {
@@ -12,6 +19,11 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+
+    // I'll try do this, but not works
+    // https://www.baeldung.com/jpa-joincolumn-vs-mappedby/
+    @OneToMany(mappedBy = "project")
+    private Set<Cronograma> cronogramas;
 
     public Project () {
 
