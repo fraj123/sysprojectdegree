@@ -1,14 +1,22 @@
 package com.packt.sysprojectdegree.rule;
 
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//ENTIDAD
+import javax.persistence.OneToMany;
+
+
+import com.packt.sysprojectdegree.user.UserRule;
+
+
+
 @Entity
-public class rule {
+public class Rule {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,6 +25,14 @@ public class rule {
 	private String title;
 	private String content;
 	private String path;
+	
+    @OneToMany(mappedBy = "rule", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserRule> activities = new ArrayList<>();
+	
+    
+    public Rule() {}
+    
+    
 	public long getId() {
 		return id;
 	}
@@ -43,22 +59,6 @@ public class rule {
 	}
 	
 	
-	@Override
-	public int hashCode() {
-		return Objects.hash(content, id, path, title);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		rule other = (rule) obj;
-		return Objects.equals(content, other.content) && id == other.id && Objects.equals(path, other.path)
-				&& Objects.equals(title, other.title);
-	}
 	
 	
 	@Override
