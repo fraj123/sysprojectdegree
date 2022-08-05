@@ -3,6 +3,7 @@ package com.packt.sysprojectdegree.cronograma;
 import java.time.Instant;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Cronograma {
     @CreatedDate
     private Instant date;
 
-    @ManyToOne()
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private Project project;
 
@@ -126,7 +127,6 @@ public class Cronograma {
         int result = 1;
         result = prime * result + ((date == null) ? 0 : date.hashCode());
         result = prime * result + ((duration == null) ? 0 : duration.hashCode());
-        result = prime * result + ((project == null) ? 0 : project.hashCode());
         result = prime * result + ((type == null) ? 0 : type.hashCode());
         return result;
     }
@@ -152,11 +152,6 @@ public class Cronograma {
                 return false;
         } else if (!duration.equals(other.duration))
             return false;
-        if (project == null) {
-            if (other.project != null)
-                return false;
-        } else if (!project.equals(other.project))
-            return false;
         if (type == null) {
             if (other.type != null)
                 return false;
@@ -171,9 +166,11 @@ public class Cronograma {
     
     @Override
     public String toString() {
-        return "Cronograma [date=" + date + ", duration=" + duration + ", id=" + id + ", project=" + project + ", type="
-                + type + "]";
+        return "Cronograma [date=" + date + ", duration=" + duration + ", id=" + id + ", type=" + type + "]";
     }
+
+
+
 
 
 

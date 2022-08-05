@@ -2,10 +2,10 @@ package com.packt.sysprojectdegree.project;
 
 import com.packt.sysprojectdegree.cronograma.Cronograma;
 
-import java.util.Set;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,40 +20,48 @@ public class Project {
     private long id;
     private String name;
 
-    // I'll try do this, but not works
-    // https://www.baeldung.com/jpa-joincolumn-vs-mappedby/
-    @OneToMany(mappedBy = "project")
-    private Set<Cronograma> cronogramas;
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="project")
+    private List<Cronograma> cronogramas;
 
     public Project () {
 
     }
 
+    /**
+     * @param name
+     */
     public Project(String name) {
         this.name = name;
     }
 
+    /**
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name the name to set
+     */
     public void setName(String name) {
         this.name = name;
     }
 
-
-    @Override
-    public String toString() {
-        return "Project [id=" + id + ", name=" + name + "]";
-    }
 
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
@@ -85,4 +93,15 @@ public class Project {
             return false;
         return true;
     }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    
+    @Override
+    public String toString() {
+        return "Project [id=" + id + ", name=" + name + "]";
+    }
+
+
 }
