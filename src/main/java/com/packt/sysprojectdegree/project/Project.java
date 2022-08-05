@@ -62,19 +62,6 @@ public class Project {
         this.name = name;
     }
 
-    /**
-     * @return the cronogramas
-     */
-    public List<Cronograma> getCronogramas() {
-        return cronogramas;
-    }
-
-    /**
-     * @param cronogramas the cronogramas to set
-     */
-    public void setCronogramas(List<Cronograma> cronogramas) {
-        this.cronogramas = cronogramas;
-    }
 
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
