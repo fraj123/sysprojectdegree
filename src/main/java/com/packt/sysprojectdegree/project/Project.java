@@ -2,10 +2,10 @@ package com.packt.sysprojectdegree.project;
 
 import com.packt.sysprojectdegree.cronograma.Cronograma;
 
-import java.util.Set;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,10 +20,8 @@ public class Project {
     private long id;
     private String name;
 
-    // I'll try do this, but not works
-    // https://www.baeldung.com/jpa-joincolumn-vs-mappedby/
-    @OneToMany(mappedBy = "project")
-    private Set<Cronograma> cronogramas;
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="project")
+    private List<Cronograma> cronogramas;
 
     public Project () {
 
@@ -67,14 +65,14 @@ public class Project {
     /**
      * @return the cronogramas
      */
-    public Set<Cronograma> getCronogramas() {
+    public List<Cronograma> getCronogramas() {
         return cronogramas;
     }
 
     /**
      * @param cronogramas the cronogramas to set
      */
-    public void setCronogramas(Set<Cronograma> cronogramas) {
+    public void setCronogramas(List<Cronograma> cronogramas) {
         this.cronogramas = cronogramas;
     }
 
