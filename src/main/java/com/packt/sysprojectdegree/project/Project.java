@@ -29,30 +29,53 @@ public class Project {
 
     }
 
+    /**
+     * @param name
+     */
     public Project(String name) {
         this.name = name;
     }
 
+    /**
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name the name to set
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * @return the cronogramas
+     */
+    public Set<Cronograma> getCronogramas() {
+        return cronogramas;
+    }
 
-    @Override
-    public String toString() {
-        return "Project [id=" + id + ", name=" + name + "]";
+    /**
+     * @param cronogramas the cronogramas to set
+     */
+    public void setCronogramas(Set<Cronograma> cronogramas) {
+        this.cronogramas = cronogramas;
     }
 
     /* (non-Javadoc)
@@ -85,4 +108,15 @@ public class Project {
             return false;
         return true;
     }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    
+    @Override
+    public String toString() {
+        return "Project [id=" + id + ", name=" + name + "]";
+    }
+
+
 }
