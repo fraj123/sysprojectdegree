@@ -3,7 +3,7 @@ package com.packt.sysprojectdegree;
 import com.packt.sysprojectdegree.role.Role;
 import com.packt.sysprojectdegree.user.User;
 
-//import java.time.Instant;
+import java.time.Instant;
 //import java.time.LocalDateTime;
 
 import com.packt.sysprojectdegree.activity.activity;
@@ -37,7 +37,8 @@ class SysprojectdegreeApplicationTests {
 
         EqualsVerifier.forClass(Project.class)
             .withIgnoredFields("cronogramas")
-            //.withPrefabValues(Cronograma.class, new Cronograma("perfil", 5, Instant.now()), new Cronograma("borrador", 9, Instant.now()))
+            //.withPrefabValues(Cronograma.class, new Cronograma("perfil", 5, Instant.now()))
+            //.withPrefabValues(Cronograma.class, new Cronograma("perfil", 5, Instant.now()), new Cronograma("borrdor", 9, Instant.now()))
             .withPrefabValues(Project.class, new Project("perfil"), new Project("borrador"))
             .verify();
 
