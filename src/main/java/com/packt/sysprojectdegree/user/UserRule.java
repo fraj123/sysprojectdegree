@@ -19,7 +19,7 @@ import com.packt.sysprojectdegree.rule.Rule;
 public class UserRule {
 
 	@EmbeddedId
-	private UserRule id = new UserRule();
+	private UserRuleId id = new UserRuleId();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@MapsId("userId")
@@ -33,12 +33,22 @@ public class UserRule {
 	private String VoBo;
 	
 	public UserRule() {}
+	
+	public UserRule(UserRuleId id, String voBo) {
+		super();
+		this.id = id;
+	
+		VoBo = voBo;
+	}
 
-	public UserRule getId() {
+
+	
+
+	public UserRuleId getId() {
 		return id;
 	}
 
-	public void setId(UserRule id) {
+	public void setId(UserRuleId id) {
 		this.id = id;
 	}
 
@@ -62,17 +72,12 @@ public class UserRule {
 		return VoBo;
 	}
 
-	public void setVoBo(String VoBo) {
-		this.VoBo = VoBo;
-	}
-
-	public UserRule(UserRule id, User user, Rule rule, String voBo) {
-		super();
-		this.id = id;
-		this.user = user;
-		this.rule = rule;
+	public void setVoBo(String voBo) {
 		VoBo = voBo;
 	}
+
+
+
 
 	@Embeddable
     public static class UserRuleId implements Serializable {
