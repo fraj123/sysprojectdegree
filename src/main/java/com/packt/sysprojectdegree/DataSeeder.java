@@ -30,23 +30,23 @@ public class DataSeeder implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        Role role1 = new Role("Adminitrator");
-        Role role2 = new Role("Student");
+        //Role role1 = new Role("Adminitrator");
+        //Role role2 = new Role("Student");
         
-        Role createdRole1 = roleRepository.save(role1);
-        Role createdRole2 = roleRepository.save(role2);
+        //Role createdRole1 = roleRepository.save(role1);
+        //Role createdRole2 = roleRepository.save(role2);
 
-        User user = new User("admin", "Admin", "Admin", "admin@email.com", 73024245, "path-to-avatar");
+        //User user = new User("admin", "Admin", "Admin", "admin@email.com", 73024245, "path-to-avatar");
         
-        Set<Role> roles = new HashSet<>();
-        roles.add(createdRole1);
-        roles.add(createdRole2);
+        //Set<Role> roles = new HashSet<>();
+        //roles.add(createdRole1);
+        //roles.add(createdRole2);
 
-        user.setRoles(roles);
+        //user.setRoles(roles);
 
-        User createdUser = userRepository.save(user);
+        //User createdUser = userRepository.save(user);
 
-        createdUser.getRoles().forEach(System.out::println);
+        //createdUser.getRoles().forEach(System.out::println);
 
     }
 
